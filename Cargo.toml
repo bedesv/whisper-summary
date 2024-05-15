@@ -1,0 +1,7 @@
+[package]
+name = "whisper-summary"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ds-transcriber = "1"
