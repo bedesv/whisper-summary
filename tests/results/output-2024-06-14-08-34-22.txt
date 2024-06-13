@@ -1,0 +1,35 @@
+ggml-tiny.en.bin
+	short-test.wav	294ms
+	long-test.wav	698ms
+	tiny-test.wav	179ms
+
+ggml-tiny.bin
+	short-test.wav	298ms
+	long-test.wav	904ms
+	tiny-test.wav	186ms
+
+ggml-tiny.en-q5_1.bin
+	short-test.wav	282ms
+	long-test.wav	660ms
+	tiny-test.wav	180ms
+
+ggml-tiny-q5_1.bin
+	short-test.wav	269ms
+	long-test.wav	805ms
+	tiny-test.wav	191ms
+
+ggml-small.en.bin
+	short-test.wav	1664ms
+	long-test.wav	4893ms
+	tiny-test.wav	1233ms
+
+ggml-small-q5_1.bin
+	short-test.wav	1601ms
+	long-test.wav	5056ms
+	tiny-test.wav	1218ms
+
+ggml-tiny.en-q8_0.bin
+	short-test.wav	357ms
+	long-test.wav	647ms
+	tiny-test.wav	171ms
+
