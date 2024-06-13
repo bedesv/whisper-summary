@@ -8,8 +8,8 @@
 | ggml-small.en-tdrz | 145             | 2839            | "proves this." |
 | ggml-small.en-q5_1 | 154             | 3445            | 100%           |
 | ggml-small.en      | 119             | 2993            | 100%           |
-| ggml-tiny-q5_1     | 484             | 63              | 100%           |
-| ggml-tiny.en-q5_1  | 474             | 86              | 100%           |
+| ggml-tiny-q5_1     | 63              | 484             | 100%           |
+| ggml-tiny.en-q5_1  | 86              | 474             | 100%           |
 
 ## short-test.wav
 
