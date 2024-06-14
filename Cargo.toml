@@ -14,19 +14,11 @@ hound = "3"
 version = "0.11.1"
 features = ["whisper-cpp-log"]
 
-[target.aarch64-apple-darwin]
-rustflags = "-lc++ -l framework=Accelerate"
+[target.'cfg(target_arch = "aarch64-apple-darwin")'.dependencies]
+whisper-rs = { version = "0.11.1", features = ["whisper-cpp-log", "metal"] }
 
-[target.aarch64-apple-darwin.dependencies.whisper-rs]
-version = "0.11.1"
-features = ["whisper-cpp-log", "metal"]
-
-[target_os.windows.dependencies.whisper-rs]
-version = "0.11.1"
-features = ["whisper-cpp-log", "cuda"]
-
-
-
+[target.'cfg(windows)'.dependencies]
+whisper-rs = { version = "0.11.1", features = ["whisper-cpp-log", "cuda"] }
 
 [dev-dependencies]
 walkdir = "2"
