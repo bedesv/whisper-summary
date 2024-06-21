@@ -2,16 +2,16 @@ use std::{fs::File, io::prelude::*};
 use chrono::prelude::*;
 
 use walkdir::WalkDir;
-use whisperdiscordbot;
+use whisperdiscordbot::whisper as whisper;
 
 #[test]
 fn test_whisper_summary() {
-    let models_folder = ".\\models";
-    let test_audio_folder = ".\\tests\\audio-files";
+    let models_folder = "./models";
+    let test_audio_folder = "./tests/audio-files";
 
-    let time = Local::now().format("%Y-%m-%d-%H-%M-%S").to_string();
+    let time = Local::now().format("%Y-%m-%dT%H%M%S").to_string();
 
-    let filename = format!(".\\tests\\results\\output-{}.txt", time);
+    let filename = format!("./tests/results/output-{}.txt", time);
 
     let mut file = File::create(filename)
         .expect("Unable to create text file");
@@ -22,7 +22,7 @@ fn test_whisper_summary() {
             .filter_map(|e| e.ok()) {
         let model_path = model.path();
 
-        let ctx = whisperdiscordbot::init_context(model_path);
+        let ctx = whisper::init_context(model_path);
 
         writeln!(file, "{}", model_path.file_name().unwrap().to_str().unwrap())
             .expect("Unable to write to log file");
@@ -34,7 +34,7 @@ fn test_whisper_summary() {
             .filter_map(|e| e.ok()) {
                 let audio_file_path = audio_file.path();
 
-                let (st, et, _state) = whisperdiscordbot::run_on_one_file(audio_file_path, &ctx);
+                let (st, et, _state) = whisper::run_on_one_file(audio_file_path, &ctx);
 
                 writeln!(file, "\t{}\t{}ms", audio_file_path.file_name().unwrap().to_str().unwrap(), (et - st).as_millis())
                     .expect("Unable to write to log file");

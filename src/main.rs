@@ -1,5 +1,5 @@
 use std::path::Path;
-use whisperdiscordbot::{init_context, run_on_one_file, print_result};
+use whisperdiscordbot::whisper as whisper;
 
 fn main() {
     let arg1 = std::env::args()
@@ -17,9 +17,9 @@ fn main() {
         panic!("whisper file doesn't exist")
     }
 
-    let ctx = init_context(&whisper_path);
+    let ctx = whisper::init_context(&whisper_path);
 
-    let (st, et, state) = run_on_one_file(audio_path, &ctx);
+    let (st, et, state) = whisper::run_on_one_file(audio_path, &ctx);
 
-    print_result(st, et, &state);
+    whisper::print_result(st, et, &state);
 }

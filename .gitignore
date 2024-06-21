@@ -108,4 +108,5 @@ Cargo.lock
 
 #/target
 
-models/
+models/*
+tests/results/*
