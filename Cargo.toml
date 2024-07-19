@@ -22,17 +22,13 @@ tracing = "0.1"
 tracing-subscriber = "0.3.18"
 tracing-futures = "0.2"
 
-[dependencies.whisper-rs]
-version = "0.11.1"
-features = ["whisper-cpp-log"]
-
 # Enable metal on MacOS
-[target.'cfg(target_arch = "aarch64-apple-darwin")'.dependencies]
-whisper-rs = { version = "0.11.1", features = ["whisper-cpp-log", "metal"] }
+[target.'cfg(all(target_os="macos", target_arch="aarch64"))'.dependencies]
+whisper-rs = { git = "https://github.com/tazz4843/whisper-rs.git", rev = "744804a", features = ["whisper-cpp-log", "metal"] }
 
 # Enable CUDA on Windows
 [target.'cfg(windows)'.dependencies]
-whisper-rs = { version = "0.11.1", features = ["whisper-cpp-log", "cuda"] }
+whisper-rs = { git = "https://github.com/tazz4843/whisper-rs.git", rev = "744804a", features = ["whisper-cpp-log", "cuda"] }
 
 [dev-dependencies]
 walkdir = "2"

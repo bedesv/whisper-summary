@@ -45,7 +45,7 @@ pub mod whisper {
         println!("took {}ms", (et - st).as_millis());
     }
 
-    pub fn run_on_one_file<'a>(audio_path: &'a Path, ctx: &'a WhisperContext) -> (Instant, Instant, WhisperState<'a>) {
+    pub fn run_on_one_file<'a>(audio_path: &'a Path, ctx: &'a WhisperContext) -> (Instant, Instant, WhisperState) {
         let original_samples = parse_wav_file(audio_path);
         let mut samples = vec![0.0f32; original_samples.len()];
         whisper_rs::convert_integer_to_float_audio(&original_samples, &mut samples)
